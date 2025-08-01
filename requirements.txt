@@ -1,7 +1,6 @@
 streamlit
+scikit-learn
 pandas
 numpy
-matplotlib.pyplot
-sklearn.preprocessing.LabelEncoder
-sklearn.preprocessing.StandardScaler
+matplotlib
 io
