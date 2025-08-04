@@ -14,9 +14,7 @@ st.title("Black Friday Sale Analysis Dashboard")
 # File uploader for CSV
 uploaded_file = st.file_uploader("Upload Black Friday Sale CSV file", type=["csv"])
 
-if uploaded_file is not None:
-    # Read data
-    df = pd.read_csv(uploaded_file)
+data_url = " https://raw.githubusercontent.com/Nthanh14/Black_Friday_Sale/refs/heads/main/Black_Friday_Sale.csv"
 
     # Data Preprocessing
     df['Product_Category_2'] = df['Product_Category_2'].fillna(0)
