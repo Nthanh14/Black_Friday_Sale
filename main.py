@@ -11,10 +11,14 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 # Streamlit app title
 st.title("Black Friday Sale Analysis Dashboard")
 
+# File uploader for CSV
+uploaded_file = st.file_uploader("Upload Black Friday Sale CSV file", type=["csv"])
+
+if uploaded_file is not None:
+    # Read data
+    df = pd.read_csv(uploaded_file)
+
     # Data Preprocessing
-data_url = " https://raw.githubusercontent.com/Nthanh14/Black_Friday_Sale/refs/heads/main/Black_Friday_Sale.csv"
-
-
     df['Product_Category_2'] = df['Product_Category_2'].fillna(0)
     df['Product_Category_3'] = df['Product_Category_3'].fillna(0)
     df = df.drop_duplicates()
