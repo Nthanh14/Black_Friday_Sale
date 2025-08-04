@@ -13,6 +13,7 @@ st.title("Black Friday Sale Analysis Dashboard")
 
 # File uploader for CSV
 uploaded_file = st.file_uploader("Upload Black Friday Sale CSV file", type=["csv"])
+data_url = " https://raw.githubusercontent.com/Nthanh14/Black_Friday_Sale/refs/heads/main/Black_Friday_Sale.csv "
 
 if uploaded_file is not None:
     # Read data
