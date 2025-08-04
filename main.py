@@ -10,11 +10,13 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 
 # Streamlit app title
 st.title("Black Friday Sale Analysis Dashboard")
-data_url = " https://raw.githubusercontent.com/Nthanh14/Black_Friday_Sale/refs/heads/main/Black_Friday_Sale.csv "
 
-if uploaded_file is not None:
-    # Read data
-    df = pd.read_csv(uploaded_file)
+# Định nghĩa URL dữ liệu mặc định
+data_url = "https://raw.githubusercontent.com/Nthanh14/Black_Friday_Sale/refs/heads/main/Black_Friday_Sale.csv"
+
+try:
+    # Tải dữ liệu từ URL
+    df = pd.read_csv(data_url)
 
     # Data Preprocessing
     df['Product_Category_2'] = df['Product_Category_2'].fillna(0)
@@ -129,5 +131,5 @@ if uploaded_file is not None:
     st.write(f"R-squared: {r2:.4f}")
     st.write(f"Mean Absolute Error: {mae:.4f}")
 
-else:
-    st.write("Please upload a CSV file to start the analysis.")
+except Exception as e:
+    st.error(f"Đã xảy ra lỗi khi tải dữ liệu từ URL: {str(e)}. Vui lòng kiểm tra kết nối internet hoặc URL.")
